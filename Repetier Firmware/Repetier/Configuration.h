@@ -26,7 +26,7 @@
 
 // ##### Older Orions w/ATX had Y inverted and NEW PSU on orions needs opposite ###############
 // 1 = ATX on older machines  2 = Rail style PSU on newer machines ############################
-#define POWER_SUPPLY 1
+#define POWER_SUPPLY 2
 
 // ############################################################################################
 // ################# BASIC CONFIGURATION IS ALL DONE ABOVE HERE ###############################
@@ -41,7 +41,7 @@
 // ############ FW version info and build date for LCD and M115 string! #######################
 // ############################################################################################
 #define REPETIER_VERSION "0.92.2"
-#define FIRMWARE_DATE "20161014" // in date format yyyymmdd
+#define FIRMWARE_DATE "20161025" // in date format yyyymmdd
 
 
 
@@ -51,7 +51,7 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 #define ADVANCED_USER 1 // Change to 1 to unlock full menus
-#define NUM_EXTRUDER 1
+#define NUM_EXTRUDER 2
 
 #include "pins.h"
 
@@ -66,7 +66,7 @@
 // ################## RAMBo Digipot Motor current control settings ################
 // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 // use 140 for xyz and 130 for the E if using Kysan/AutomationTechnology motors and 175 xyz and 200 if using wantai motors
-#define MOTOR_CURRENT {140,140,140,130,0} 
+#define MOTOR_CURRENT {140,140,140,130,130} 
 
 //################### Mini Rambo etc... motor current settings    #########
 //  Motor PWM current for mini rambo is X+Y on the same first value, Z on the next, then Extruder(s) on the last value
@@ -131,6 +131,22 @@
 #define EXT0_MAX_ACCELERATION 6500
 #define EXT0_HEAT_MANAGER 1
 #define EXT0_WATCHPERIOD 3
+#define EXT1_X_OFFSET 0
+#define EXT1_Y_OFFSET 0
+#define EXT1_STEPS_PER_MM 92.4
+#define EXT1_TEMPSENSOR_TYPE 97
+#define EXT1_TEMPSENSOR_PIN TEMP_0_PIN
+#define EXT1_HEATER_PIN HEATER_0_PIN
+#define EXT1_STEP_PIN ORIG_E1_STEP_PIN
+#define EXT1_DIR_PIN ORIG_E1_DIR_PIN
+#define EXT1_INVERSE 1
+#define EXT1_ENABLE_PIN E1_ENABLE_PIN
+#define EXT1_ENABLE_ON 0
+#define EXT1_MAX_FEEDRATE 100
+#define EXT1_MAX_START_FEEDRATE 45
+#define EXT1_MAX_ACCELERATION 6500
+#define EXT1_HEAT_MANAGER 1
+#define EXT1_WATCHPERIOD 3
 
 /* ########### PID Settings for hotends  ########### */
 #if PRINTER == 1  // Orion Delta
@@ -168,6 +184,12 @@
 #define EXT0_PID_I 0.73
 #define EXT0_PID_D 53.41
 #define EXT0_PID_MAX 255
+#define EXT1_PID_INTEGRAL_DRIVE_MAX 180
+#define EXT1_PID_INTEGRAL_DRIVE_MIN 80
+#define EXT1_PID_PGAIN_OR_DEAD_TIME 14.50
+#define EXT1_PID_I 0.73
+#define EXT1_PID_D 53.41
+#define EXT1_PID_MAX 255
 #endif
 
 #define EXT0_ADVANCE_K 0
@@ -177,15 +199,25 @@
 #define EXT0_WAIT_RETRACT_UNITS 0
 #define EXT0_SELECT_COMMANDS "M117 Extruder 1"
 #define EXT0_DESELECT_COMMANDS ""
+#define EXT1_ADVANCE_K 0
+#define EXT1_ADVANCE_L 0
+#define EXT1_ADVANCE_BACKLASH_STEPS 0
+#define EXT1_WAIT_RETRACT_TEMP 150
+#define EXT1_WAIT_RETRACT_UNITS 0
+#define EXT1_SELECT_COMMANDS "M117 Extruder 2"
+#define EXT1_DESELECT_COMMANDS ""
 
 #if MOTHERBOARD == 302
 #define EXT0_EXTRUDER_COOLER_PIN -1 
 #else
 #define EXT0_EXTRUDER_COOLER_PIN 7
+#define EXT1_EXTRUDER_COOLER_PIN 7
 #endif
 
 #define EXT0_EXTRUDER_COOLER_SPEED 200
 #define EXT0_DECOUPLE_TEST_PERIOD 45000
+#define EXT1_EXTRUDER_COOLER_SPEED 200
+#define EXT1_DECOUPLE_TEST_PERIOD 45000
 
 #define FEATURE_RETRACTION 0
 #define AUTORETRACT_ENABLED 0
