@@ -7,7 +7,7 @@ Rostock MAX v3   = 5
 Hacker H2        = 6
 */
 // ### Define your Printer Model here! ###
-#define PRINTER 5
+#define PRINTER 2
 
 // SeeMeCNC Bowden w/PEEK barrel = 1
 // HE240 on ERIS w/accel probe   = 2
@@ -295,7 +295,8 @@ Hacker H2        = 6
 
 #elif PRINTER == 2 // Rostock MAX v2
 #if NUM_EXTRUDER == 1
-#define MOTOR_CURRENT {140,140,140,130,0}
+#define MOTOR_CURRENT {175,175,175,200,0} // Use old wantai steppers
+// #define MOTOR_CURRENT {140,140,140,130,0}
 #elif NUM_EXTRUDER == 2
 #define MOTOR_CURRENT {140,140,140,130,130}
 #endif
@@ -306,7 +307,7 @@ Hacker H2        = 6
 #define DELTA_DIAGONAL_ROD 291.06  // ball cup arms
 #define DELTA_MAX_RADIUS 145.0
 #define PRINTER_RADIUS 200.0
-#define Z_MAX_LENGTH 350
+#define Z_MAX_LENGTH 362.4
 #define END_EFFECTOR_HORIZONTAL_OFFSET 30.22
 #define CARRIAGE_HORIZONTAL_OFFSET 26.5  // molded cheapskates
 #define DELTASEGMENTS_PER_PRINTLINE 22
@@ -631,7 +632,7 @@ Hacker H2        = 6
 #define ENDSTOP_X_BACK_ON_HOME 5
 #define ENDSTOP_Y_BACK_ON_HOME 5
 #define ENDSTOP_Z_BACK_ON_HOME 5
-#define ALWAYS_CHECK_ENDSTOPS 1
+#define ALWAYS_CHECK_ENDSTOPS 0
 
 // ################# XYZ movements ###################
 
