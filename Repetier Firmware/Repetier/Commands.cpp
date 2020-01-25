@@ -57,12 +57,12 @@ bool accelerometer_recv(uint8_t reg)
   uint8_t receiveByte;
 
   accelerometer_send(reg); //Send an 8bit register to be read
-  
+
   Wire.requestFrom(ACCELEROMETER_I2C_ADDR,1); //Request one 8bit response
-  
-  if(Wire.available()) 
+
+  if(Wire.available())
   {
-    receiveByte = Wire.read(); 
+    receiveByte = Wire.read();
 
 //    Com::printF(PSTR("read reg "),reg);
 //    Com::printFLN(PSTR(" value: "),receiveByte);
@@ -84,7 +84,7 @@ void accelerometer_init()
 #if FEATURE_Z_PROBE == 1
   Com::printFLN(PSTR("iis2dh accelerometer initializing..."));
   Wire.begin(); // join i2c bus
-  
+
   accelerometer_recv(0x0F); //WHO AM I = 0x6A
 
   accelerometer_recv(0x31); //INT1_SRC (31h)
@@ -102,7 +102,7 @@ void accelerometer_init()
 
   //CTRL_REG6 (25h)
   accelerometer_recv(0x25);
-  accelerometer_write(0x25,0b000000); //Click interrupt on INT2 pin [7]. Interrupt 1 function enable on INT2 pin [6]. Interrupt 2 on INT2 pin enable [5]. 0=INT Active High [1]. 
+  accelerometer_write(0x25,0b000000); //Click interrupt on INT2 pin [7]. Interrupt 1 function enable on INT2 pin [6]. Interrupt 2 on INT2 pin enable [5]. 0=INT Active High [1].
   accelerometer_recv(0x25);
 
   //CTRL_REG4 (23h)
@@ -115,7 +115,7 @@ void accelerometer_init()
   accelerometer_recv(0x24);
   accelerometer_write(0x24,0b01001010); // FIFO enable [6]. Latch INT1 [3]. Latch INT2 until cleared by read [1].
   accelerometer_recv(0x24);
-  
+
 
   //INT1_CFG (30h)
   accelerometer_recv(0x30);
@@ -124,7 +124,7 @@ void accelerometer_init()
 
   //INT1_SRC (31h)
   accelerometer_recv(0x31);
-  
+
   //INT1_THS (32h)  this is the i2c probe
   accelerometer_recv(0x32);
   accelerometer_write(0x32,Z_PROBE_SENSITIVITY); // 7bits
@@ -139,9 +139,9 @@ void accelerometer_init()
   accelerometer_recv(0x34);
   accelerometer_write(0x34,0b000000); // ZHI events not enabled on INT2 [5].
   accelerometer_recv(0x34);
-  
+
   //INT2_SRC (35h)
-  
+
   //INT2_THS (36h)
   accelerometer_recv(0x36);
   accelerometer_write(0x36,50); // 7bits
@@ -152,15 +152,15 @@ void accelerometer_init()
   accelerometer_write(0x37,0);
   accelerometer_recv(0x37);
 
-  
+
   //CLICK_CFG (38h)
   accelerometer_recv(0x38);
   accelerometer_write(0x38,0b10000); //Single Click Z axis
   accelerometer_recv(0x38);
-  
+
   //CLICK_SRC (39h)
   accelerometer_recv(0x39);
-  
+
   //CLICK_THS (3Ah)
   accelerometer_recv(0x3A);
   accelerometer_write(0x3A,50);
@@ -369,7 +369,7 @@ void Commands::changeFeedrateMultiply(int factor)
     Com::printFLN(Com::tSpeedMultiply, factor);
 }
 void Commands::changeHorizontalRadius(float hradius)
-{  
+{
     if (hradius < 60) hradius = 60;
     if (hradius > 150) hradius = 150;
     Printer::radius0 = hradius;
@@ -465,7 +465,7 @@ void setMotorCurrent(uint8_t driver, unsigned int current)
     if (driver == 0) analogWrite(MOTOR_CURRENT_PWM_XY_PIN, current);  //if (driver == 0) analogWrite(MOTOR_CURRENT_PWM_XY_PIN, 50);
     if (driver == 1) analogWrite(MOTOR_CURRENT_PWM_Z_PIN, current);   //if (driver == 1) analogWrite(MOTOR_CURRENT_PWM_Z_PIN, 50);
     if (driver == 2) analogWrite(MOTOR_CURRENT_PWM_E_PIN, current);   //if (driver == 2) analogWrite(MOTOR_CURRENT_PWM_E_PIN, 50);
-  
+
   /*   OLD for setting current on eris and/or droplit.  Use motor currents in configuration.h now
   #if PRINTER == 4
     if (driver == 0) analogWrite(MOTOR_CURRENT_PWM_XY_PIN, 50);
@@ -1325,7 +1325,7 @@ void Commands::processGCode(GCode *com)
         sum1 = Printer::runZProbe(true,false,Z_PROBE_REPETITIONS,false);
         sum = Printer::runZProbe(true,false,Z_PROBE_REPETITIONS,false);
         if ((sum1 - sum) > Z_PROBE_TOLERANCE || (sum1 - sum) < - Z_PROBE_TOLERANCE){ //tap reports distance, if more or less than .1mm, it will re-run
-            Com::printFLN(PSTR("Z probe failed on sensitivity: "), probeSensitivity );  
+            Com::printFLN(PSTR("Z probe failed on sensitivity: "), probeSensitivity );
             if(probeSensitivity < Z_PROBE_MAX_SENSITIVITY){
               accelerometer_recv(0x32);
               probeSensitivity+=2;
@@ -1341,7 +1341,7 @@ void Commands::processGCode(GCode *com)
         }
 
         Printer::moveTo(EEPROM::zProbeX3(),EEPROM::zProbeY3(),IGNORE_COORDINATE,IGNORE_COORDINATE,EEPROM::zProbeXYSpeed());
-        
+
           sum1 = Printer::runZProbe(false,true); // First tap
           last = Printer::runZProbe(false,true); // Second tap
           if ((sum1 - last) > Z_PROBE_TOLERANCE || (sum1 - last) < - Z_PROBE_TOLERANCE){
@@ -1358,9 +1358,9 @@ void Commands::processGCode(GCode *com)
             last = (last + sum1) / 2;
           }
         } while (sum < 0);
-        
+
         sum = (sum - last)*AXIS_STEPS_PER_MM;
-        if(sum<0) 
+        if(sum<0)
         {
           sum=-sum;
           Com::printFLN(Com::tZProbeAverage,sum);
@@ -1414,7 +1414,7 @@ void Commands::processGCode(GCode *com)
         GCode::executeFString(Com::tZProbeStartScript);
         Printer::setAutolevelActive(false);
         Printer::moveTo(EEPROM::zProbeX1(),EEPROM::zProbeY1(),IGNORE_COORDINATE,IGNORE_COORDINATE,EEPROM::zProbeXYSpeed());
-       
+
           sum1 = Printer::runZProbe(true,false,Z_PROBE_REPETITIONS,false); //First tap
           sum = Printer::runZProbe(true,false,Z_PROBE_REPETITIONS,false); //Second tap
           if ((sum1 - sum) > Z_PROBE_TOLERANCE || (sum1 - sum) < - Z_PROBE_TOLERANCE){ //tap reports distance, if more or less than .1mm, it will re-run
@@ -1438,7 +1438,7 @@ void Commands::processGCode(GCode *com)
 
         int32_t offsetX = ((sum * AXIS_STEPS_PER_MM) - (Z_PROBE_BED_DISTANCE * AXIS_STEPS_PER_MM)), offsetStepsX = EEPROM::deltaTowerXOffsetSteps();
         Printer::moveTo(EEPROM::zProbeX2(),EEPROM::zProbeY2(),IGNORE_COORDINATE,IGNORE_COORDINATE,EEPROM::zProbeXYSpeed());
- 
+
           sum1 = Printer::runZProbe(false,false); //First tap Y tower
           last = Printer::runZProbe(false,false); //Second tap Y tower
           if ((sum1 - last) > Z_PROBE_TOLERANCE || (sum1 - last) < - Z_PROBE_TOLERANCE){
@@ -1456,10 +1456,10 @@ void Commands::processGCode(GCode *com)
           }else{
             last = (last + sum1) / 2;
           }
-        
+
         int32_t offsetY = ((last * AXIS_STEPS_PER_MM) - (Z_PROBE_BED_DISTANCE * AXIS_STEPS_PER_MM)), offsetStepsY = EEPROM::deltaTowerYOffsetSteps();
         Printer::moveTo(EEPROM::zProbeX3(),EEPROM::zProbeY3(),IGNORE_COORDINATE,IGNORE_COORDINATE,EEPROM::zProbeXYSpeed());
-        
+
           sum1 = Printer::runZProbe(false,true); //First tap Z tower
           last = Printer::runZProbe(false,true); //Second tap Z tower
           if((sum1 - last) > Z_PROBE_TOLERANCE || (sum1 - last) < - Z_PROBE_TOLERANCE){
@@ -1477,9 +1477,9 @@ void Commands::processGCode(GCode *com)
           }else{
             last = (last + sum1) / 2;
           }
-          
+
         int32_t offsetZ = ((last * AXIS_STEPS_PER_MM) - (Z_PROBE_BED_DISTANCE * AXIS_STEPS_PER_MM)), offsetStepsZ = EEPROM::deltaTowerZOffsetSteps();
-    
+
         if(com->hasS() && com->S)
         {
             Printer::updateCurrentPosition();
