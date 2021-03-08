@@ -44,10 +44,12 @@
 //  Microstepping mod eof your RAMO board
 #define MICROSTEP_MODES { 8,8,8,8,8 } // [1,2,4,8,16]
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define MOTOR_CURRENT_PERCENT { 55,55,55,55,55 }
+#define MOTOR_CURRENT_PERCENT { 68,68,68,78,0 }
 
 // ################ END MANUAL SETTINGS ##########################
 
+#undef FAN_PIN
+#define FAN_PIN ORIG_FAN2_PIN
 #undef FAN_BOARD_PIN
 #define FAN_BOARD_PIN -1
 #define BOARD_FAN_SPEED 255
@@ -77,7 +79,7 @@
 #define DECOUPLING_TEST_MAX_HOLD_VARIANCE 30
 #define DECOUPLING_TEST_MIN_TEMP_RISE 1
 #define KILL_IF_SENSOR_DEFECT 0
-#define RETRACT_ON_PAUSE 2
+#define RETRACT_ON_PAUSE 8
 #define PAUSE_START_COMMANDS "G91/nG1 Z10.0 E-5.0 F1500/nG90/n"
 #define PAUSE_END_COMMANDS "G91/nG1 Z-10.0 E5.1 F1500/nG90/n"
 #define SHARED_EXTRUDER_HEATER 0
@@ -90,7 +92,7 @@
 #define EXT0_HEATER_PIN HEATER_0_PIN
 #define EXT0_STEP_PIN ORIG_E0_STEP_PIN
 #define EXT0_DIR_PIN ORIG_E0_DIR_PIN
-#define EXT0_INVERSE 0
+#define EXT0_INVERSE 1
 #define EXT0_ENABLE_PIN ORIG_E0_ENABLE_PIN
 #define EXT0_ENABLE_ON 0
 #define EXT0_MIRROR_STEPPER 0
@@ -113,7 +115,7 @@
 #define EXT0_ADVANCE_L 0
 #define EXT0_ADVANCE_BACKLASH_STEPS 0
 #define EXT0_WAIT_RETRACT_TEMP 150
-#define EXT0_WAIT_RETRACT_UNITS 2
+#define EXT0_WAIT_RETRACT_UNITS 4
 #define EXT0_SELECT_COMMANDS ""
 #define EXT0_DESELECT_COMMANDS ""
 #define EXT0_EXTRUDER_COOLER_PIN ORIG_FAN_PIN
@@ -162,10 +164,10 @@
 
 // ############# Heated bed configuration ########################
 
-#define HAVE_HEATED_BED 0
+#define HAVE_HEATED_BED 1
 #define HEATED_BED_MAX_TEMP 120
 #define SKIP_M190_IF_WITHIN 3
-#define HEATED_BED_SENSOR_TYPE 1
+#define HEATED_BED_SENSOR_TYPE 97
 #define HEATED_BED_SENSOR_PIN TEMP_1_PIN
 #define HEATED_BED_HEATER_PIN HEATER_1_PIN
 #define HEATED_BED_SET_INTERVAL 5000
@@ -536,12 +538,12 @@ Values must be in range 1..255
 */
 #define BEEPER_SHORT_SEQUENCE 2,2
 #define BEEPER_LONG_SEQUENCE 8,8
-#define UI_SET_PRESET_HEATED_BED_TEMP_PLA 60
+#define UI_SET_PRESET_HEATED_BED_TEMP_PLA 50
 #define UI_SET_PRESET_EXTRUDER_TEMP_PLA   180
-#define UI_SET_PRESET_HEATED_BED_TEMP_ABS 80
+#define UI_SET_PRESET_HEATED_BED_TEMP_ABS 60
 #define UI_SET_PRESET_EXTRUDER_TEMP_ABS   200
 #define UI_SET_MIN_HEATED_BED_TEMP  30
-#define UI_SET_MAX_HEATED_BED_TEMP 120
+#define UI_SET_MAX_HEATED_BED_TEMP 90
 #define UI_SET_MIN_EXTRUDER_TEMP   150
 #define UI_SET_MAX_EXTRUDER_TEMP   280
 #define UI_SET_EXTRUDER_FEEDRATE 2
@@ -553,7 +555,24 @@ Values must be in range 1..255
 
 
 #endif
-
+#define USE_GENERIC_THERMISTORTABLE_1
+#define GENERIC_THERM1_T0 25
+#define GENERIC_THERM1_R0 100000
+#define GENERIC_THERM1_BETA 4450 //4267
+#define GENERIC_THERM1_MIN_TEMP -50
+#define GENERIC_THERM1_MAX_TEMP 300
+#define GENERIC_THERM1_R1 0
+#define GENERIC_THERM1_R2 4700
+#define USE_GENERIC_THERMISTORTABLE_2
+#define GENERIC_THERM2_T0 25
+#define GENERIC_THERM2_R0 100000
+#define GENERIC_THERM2_BETA 4367
+#define GENERIC_THERM2_MIN_TEMP -20
+#define GENERIC_THERM2_MAX_TEMP 300
+#define GENERIC_THERM2_R1 0
+#define GENERIC_THERM2_R2 4700
+#define GENERIC_THERM_VREF 5
+#define GENERIC_THERM_NUM_ENTRIES 33
 /* Below you will find the configuration string, that created this Configuration.h
 
 ========== Start configuration string ==========
@@ -585,7 +604,7 @@ Values must be in range 1..255
             "heaterPin": "HEATER_0_PIN",
             "maxFeedrate": 100,
             "startFeedrate": 45,
-            "invert": "0",
+            "invert": "1",
             "invertEnable": "0",
             "acceleration": 6500,
             "watchPeriod": 1,
@@ -595,8 +614,8 @@ Values must be in range 1..255
             "advanceK": 0,
             "advanceL": 0,
             "waitRetractTemp": 150,
-            "waitRetractUnits": 2,
-            "waitRetract": 2,
+            "waitRetractUnits": 4,
+            "waitRetract": 4,
             "stepsPerMM": 92.4,
             "coolerPin": "ORIG_FAN_PIN",
             "coolerSpeed": 255,
@@ -763,7 +782,7 @@ Values must be in range 1..255
     "servo2Pin": -1,
     "servo3Pin": -1,
     "featureWatchdog": "1",
-    "hasHeatedBed": "0",
+    "hasHeatedBed": "1",
     "enableZProbing": "1",
     "extrudeMaxLength": 160,
     "homeOrder": "HOME_ORDER_ZXY",
@@ -782,19 +801,19 @@ Values must be in range 1..255
     "uiKeyReduceRepeat": 50,
     "uiKeyMinRepeat": 50,
     "featureBeeper": "1",
-    "uiPresetBedTempPLA": 60,
-    "uiPresetBedABS": 80,
+    "uiPresetBedTempPLA": 50,
+    "uiPresetBedABS": 60,
     "uiPresetExtruderPLA": 180,
     "uiPresetExtruderABS": 200,
     "uiMinHeatedBed": 30,
-    "uiMaxHeatedBed": 120,
+    "uiMaxHeatedBed": 90,
     "uiMinEtxruderTemp": 150,
     "uiMaxExtruderTemp": 280,
     "uiExtruderFeedrate": 2,
     "uiExtruderRetractDistance": 3,
     "uiSpeeddependentPositioning": "1",
     "maxBedTemperature": 120,
-    "bedSensorType": 1,
+    "bedSensorType": 5,
     "bedSensorPin": "TEMP_1_PIN",
     "bedHeaterPin": "HEATER_1_PIN",
     "bedHeatManager": 0,
@@ -861,7 +880,7 @@ Values must be in range 1..255
     "forceChecksum": "0",
     "sdExtendedDir": "1",
     "featureFanControl": "1",
-    "fanPin": "ORIG_FAN_PIN",
+    "fanPin": "ORIG_FAN2_PIN",
     "featureFan2Control": "0",
     "fan2Pin": "ORIG_FAN2_PIN",
     "fanThermoPin": -1,
@@ -924,7 +943,7 @@ Values must be in range 1..255
     "axisCompTanXY": 0,
     "axisCompTanXZ": 0,
     "axisCompTanYZ": 0,
-    "retractOnPause": 2,
+    "retractOnPause": 8,
     "pauseStartCommands": "G91\/nG1 Z10.0 E-5.0 F1500\/nG90\/n",
     "pauseEndCommands": "G91\/nG1 Z-10.0 E5.1 F1500\/nG90\/n",
     "distortionCorrection": "0",
@@ -1102,7 +1121,7 @@ Values must be in range 1..255
     "hasGeneric1": false,
     "hasGeneric2": false,
     "hasGeneric3": false,
-    "hasUser0": false,
+    "hasUser0": true,
     "hasUser1": false,
     "hasUser2": false,
     "numExtruder": 1,
