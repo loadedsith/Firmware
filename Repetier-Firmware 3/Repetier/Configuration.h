@@ -42,7 +42,7 @@
 
 // ################## EDIT THESE SETTINGS MANUALLY ################
 //  Microstepping mod eof your RAMO board
-#define MICROSTEP_MODES { 8,8,8,8,8 } // [1,2,4,8,16]
+#define MICROSTEP_MODES { 16,16,16,16,16 } // [1,2,4,8,16]
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
 #define MOTOR_CURRENT_PERCENT { 68,68,68,78,0 }
 
@@ -86,7 +86,7 @@
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 #define EXT0_Z_OFFSET 0
-#define EXT0_STEPS_PER_MM 92.4
+#define EXT0_STEPS_PER_MM 92.65
 #define EXT0_TEMPSENSOR_TYPE 8
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 #define EXT0_HEATER_PIN HEATER_0_PIN
@@ -174,9 +174,9 @@
 #define HEATED_BED_HEAT_MANAGER 0
 #define HEATED_BED_PID_INTEGRAL_DRIVE_MAX 255
 #define HEATED_BED_PID_INTEGRAL_DRIVE_MIN 80
-#define HEATED_BED_PID_PGAIN_OR_DEAD_TIME   196
-#define HEATED_BED_PID_IGAIN   33
-#define HEATED_BED_PID_DGAIN 290
+#define HEATED_BED_PID_PGAIN_OR_DEAD_TIME   61.33
+#define HEATED_BED_PID_IGAIN   1.66
+#define HEATED_BED_PID_DGAIN 564.93
 #define HEATED_BED_PID_MAX 255
 #define HEATED_BED_DECOUPLE_TEST_PERIOD 300000
 #define MIN_EXTRUDER_TEMP 150
@@ -242,35 +242,35 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Y_MIN_INVERTING false
 #define MIN_HARDWARE_ENDSTOP_Y false
 #define ENDSTOP_PULLUP_Z_MIN true
-#define ENDSTOP_Z_MIN_INVERTING false
-#define MIN_HARDWARE_ENDSTOP_Z false
+#define ENDSTOP_Z_MIN_INVERTING true
+#define MIN_HARDWARE_ENDSTOP_Z true
 #define ENDSTOP_PULLUP_X_MAX true
-#define ENDSTOP_X_MAX_INVERTING true
+#define ENDSTOP_X_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MAX true
-#define ENDSTOP_Y_MAX_INVERTING true
+#define ENDSTOP_Y_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MAX true
-#define ENDSTOP_Z_MAX_INVERTING true
+#define ENDSTOP_Z_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Z true
 #define max_software_endstop_r true
 
-#define min_software_endstop_x true
-#define min_software_endstop_y true
+#define min_software_endstop_x false
+#define min_software_endstop_y false
 #define min_software_endstop_z true
-#define max_software_endstop_x false
-#define max_software_endstop_y false
-#define max_software_endstop_z false
+#define max_software_endstop_x true
+#define max_software_endstop_y true
+#define max_software_endstop_z true
 #define ENDSTOP_X_BACK_MOVE 5
 #define ENDSTOP_Y_BACK_MOVE 5
-#define ENDSTOP_Z_BACK_MOVE 2
-#define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
-#define ENDSTOP_X_BACK_ON_HOME 0
-#define ENDSTOP_Y_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_MOVE 5
+#define ENDSTOP_X_RETEST_REDUCTION_FACTOR 2
+#define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 2
+#define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 2
+#define ENDSTOP_X_BACK_ON_HOME 5
+#define ENDSTOP_Y_BACK_ON_HOME 5
 #define ENDSTOP_Z_BACK_ON_HOME 5
-#define ALWAYS_CHECK_ENDSTOPS 1
+#define ALWAYS_CHECK_ENDSTOPS 0
 
 // ################# XYZ movements ###################
 
@@ -289,7 +289,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define Z_HOME_DIR 1
 #define X_MAX_LENGTH 200
 #define Y_MAX_LENGTH 200
-#define Z_MAX_LENGTH 349
+#define Z_MAX_LENGTH 303.45
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -328,9 +328,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTA_DIAGONAL_CORRECTION_A 0
 #define DELTA_DIAGONAL_CORRECTION_B 0
 #define DELTA_DIAGONAL_CORRECTION_C 0
-#define END_EFFECTOR_HORIZONTAL_OFFSET 0
-#define CARRIAGE_HORIZONTAL_OFFSET 0
-#define DELTA_MAX_RADIUS 150
+#define END_EFFECTOR_HORIZONTAL_OFFSET 30.22
+#define CARRIAGE_HORIZONTAL_OFFSET 26.5
+#define DELTA_MAX_RADIUS 145.0
 #define ROD_RADIUS 144
 #define PRINTER_RADIUS 144
 #define DELTA_HOME_ON_POWER 0
@@ -346,7 +346,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define MAX_INACTIVE_TIME 900L
 #define MAX_FEEDRATE_X 250
 #define MAX_FEEDRATE_Y 250
-#define MAX_FEEDRATE_Z 2
+#define MAX_FEEDRATE_Z 250
 #define HOMING_FEEDRATE_X 80
 #define HOMING_FEEDRATE_Y 80
 #define HOMING_FEEDRATE_Z 80
