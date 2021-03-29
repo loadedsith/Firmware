@@ -289,7 +289,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define Z_HOME_DIR 1
 #define X_MAX_LENGTH 200
 #define Y_MAX_LENGTH 200
-#define Z_MAX_LENGTH 303.45
+#define Z_MAX_LENGTH 302.11
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
@@ -330,7 +330,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTA_DIAGONAL_CORRECTION_C 0
 #define END_EFFECTOR_HORIZONTAL_OFFSET 30.22
 #define CARRIAGE_HORIZONTAL_OFFSET 26.5
-#define DELTA_MAX_RADIUS 145.0
+#define DELTA_MAX_RADIUS 135.0
 #define ROD_RADIUS 144
 #define PRINTER_RADIUS 144
 #define DELTA_HOME_ON_POWER 0
@@ -459,12 +459,12 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define Z_PROBE_REQUIRES_HEATING 0
 #define Z_PROBE_MIN_TEMPERATURE 150
 #define FEATURE_AUTOLEVEL 1
-#define Z_PROBE_X1 -123.565
-#define Z_PROBE_Y1 -71.34
-#define Z_PROBE_X2 123.565
-#define Z_PROBE_Y2 -71.34
+#define Z_PROBE_X1 -77.94
+#define Z_PROBE_Y1 -45
+#define Z_PROBE_X2 77.94
+#define Z_PROBE_Y2 -45
 #define Z_PROBE_X3 0
-#define Z_PROBE_Y3 142.68
+#define Z_PROBE_Y3 90
 #define BED_LEVELING_METHOD 0
 #define BED_CORRECTION_METHOD 0
 #define BED_LEVELING_GRID_SIZE 5
