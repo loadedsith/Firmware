@@ -42,9 +42,9 @@
 
 // ################## EDIT THESE SETTINGS MANUALLY ################
 //  Microstepping mod eof your RAMO board
-#define MICROSTEP_MODES { 16,16,16,16,16 } // [1,2,4,8,16]
+#define MICROSTEP_MODES { 8,8,8,8,8 } // [1,2,4,8,16]
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define MOTOR_CURRENT_PERCENT { 68,68,68,78,0 }
+#define MOTOR_CURRENT_PERCENT { 55,55,55,55,55 }
 
 // ################ END MANUAL SETTINGS ##########################
 
@@ -158,6 +158,14 @@
 #define USER_THERMISTORTABLE1 {}
 #define NUM_TEMPS_USERTHERMISTOR2 0
 #define USER_THERMISTORTABLE2 {}
+#define USE_GENERIC_THERMISTORTABLE_1
+#define GENERIC_THERM1_T0 25
+#define GENERIC_THERM1_R0 100000
+#define GENERIC_THERM1_BETA 4036
+#define GENERIC_THERM1_MIN_TEMP -20
+#define GENERIC_THERM1_MAX_TEMP 300
+#define GENERIC_THERM1_R1 0
+#define GENERIC_THERM1_R2 4700
 #define GENERIC_THERM_VREF 5
 #define GENERIC_THERM_NUM_ENTRIES 33
 #define HEATER_PWM_SPEED 0
