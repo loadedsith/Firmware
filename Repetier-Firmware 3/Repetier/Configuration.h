@@ -182,9 +182,9 @@
 #define HEATED_BED_HEAT_MANAGER 0
 #define HEATED_BED_PID_INTEGRAL_DRIVE_MAX 255
 #define HEATED_BED_PID_INTEGRAL_DRIVE_MIN 80
-#define HEATED_BED_PID_PGAIN_OR_DEAD_TIME   61.33
-#define HEATED_BED_PID_IGAIN   1.66
-#define HEATED_BED_PID_DGAIN 564.93
+#define HEATED_BED_PID_PGAIN_OR_DEAD_TIME   196
+#define HEATED_BED_PID_IGAIN   33
+#define HEATED_BED_PID_DGAIN 290
 #define HEATED_BED_PID_MAX 255
 #define HEATED_BED_DECOUPLE_TEST_PERIOD 300000
 #define MIN_EXTRUDER_TEMP 150
@@ -253,22 +253,22 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Z_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_Z true
 #define ENDSTOP_PULLUP_X_MAX true
-#define ENDSTOP_X_MAX_INVERTING false
+#define ENDSTOP_X_MAX_INVERTING true
 #define MAX_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MAX true
-#define ENDSTOP_Y_MAX_INVERTING false
+#define ENDSTOP_Y_MAX_INVERTING true
 #define MAX_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MAX true
-#define ENDSTOP_Z_MAX_INVERTING false
+#define ENDSTOP_Z_MAX_INVERTING true
 #define MAX_HARDWARE_ENDSTOP_Z true
 #define max_software_endstop_r true
 
-#define min_software_endstop_x false
-#define min_software_endstop_y false
+#define min_software_endstop_x true
+#define min_software_endstop_y true
 #define min_software_endstop_z false
-#define max_software_endstop_x true
-#define max_software_endstop_y true
-#define max_software_endstop_z true
+#define max_software_endstop_x false
+#define max_software_endstop_y false
+#define max_software_endstop_z false
 #define ENDSTOP_X_BACK_MOVE 5
 #define ENDSTOP_Y_BACK_MOVE 5
 #define ENDSTOP_Z_BACK_MOVE 2
@@ -336,11 +336,11 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTA_DIAGONAL_CORRECTION_A 0
 #define DELTA_DIAGONAL_CORRECTION_B 0
 #define DELTA_DIAGONAL_CORRECTION_C 0
-#define END_EFFECTOR_HORIZONTAL_OFFSET 30.22
-#define CARRIAGE_HORIZONTAL_OFFSET 26.5
-#define DELTA_MAX_RADIUS 144.0
-#define ROD_RADIUS 140
-#define PRINTER_RADIUS 120
+#define END_EFFECTOR_HORIZONTAL_OFFSET 0
+#define CARRIAGE_HORIZONTAL_OFFSET 0
+#define DELTA_MAX_RADIUS 145
+#define ROD_RADIUS 144
+#define PRINTER_RADIUS 144
 #define DELTA_HOME_ON_POWER 0
 #define STEP_COUNTER
 #define DELTA_X_ENDSTOP_OFFSET_STEPS 0
@@ -459,9 +459,9 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define Z_PROBE_WAIT_BEFORE_TEST 0
 #define Z_PROBE_SPEED 2
 #define Z_PROBE_XY_SPEED 150
-#define Z_PROBE_SWITCHING_DISTANCE 1
-#define Z_PROBE_REPETITIONS 1
-#define Z_PROBE_HEIGHT -.1
+#define Z_PROBE_SWITCHING_DISTANCE 0.2
+#define Z_PROBE_REPETITIONS 3
+#define Z_PROBE_HEIGHT -0.1
 #define Z_PROBE_START_SCRIPT ""
 #define Z_PROBE_FINISHED_SCRIPT ""
 #define Z_PROBE_REQUIRES_HEATING 0
@@ -483,9 +483,9 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define BED_MOTOR_2_Y 0
 #define BED_MOTOR_3_X 100
 #define BED_MOTOR_3_Y 200
-#define BENDING_CORRECTION_A .1
-#define BENDING_CORRECTION_B .1
-#define BENDING_CORRECTION_C .1
+#define BENDING_CORRECTION_A 0.1
+#define BENDING_CORRECTION_B 0.1
+#define BENDING_CORRECTION_C 0.1
 #define FEATURE_AXISCOMP 0
 #define AXISCOMP_TANXY 0
 #define AXISCOMP_TANYZ 0
@@ -563,24 +563,7 @@ Values must be in range 1..255
 
 
 #endif
-#define USE_GENERIC_THERMISTORTABLE_1
-#define GENERIC_THERM1_T0 25
-#define GENERIC_THERM1_R0 100000
-#define GENERIC_THERM1_BETA 4450 //4267
-#define GENERIC_THERM1_MIN_TEMP -50
-#define GENERIC_THERM1_MAX_TEMP 300
-#define GENERIC_THERM1_R1 0
-#define GENERIC_THERM1_R2 4700
-#define USE_GENERIC_THERMISTORTABLE_2
-#define GENERIC_THERM2_T0 25
-#define GENERIC_THERM2_R0 100000
-#define GENERIC_THERM2_BETA 4367
-#define GENERIC_THERM2_MIN_TEMP -20
-#define GENERIC_THERM2_MAX_TEMP 300
-#define GENERIC_THERM2_R1 0
-#define GENERIC_THERM2_R2 4700
-#define GENERIC_THERM_VREF 5
-#define GENERIC_THERM_NUM_ENTRIES 33
+
 /* Below you will find the configuration string, that created this Configuration.h
 
 ========== Start configuration string ==========
@@ -616,15 +599,15 @@ Values must be in range 1..255
             "invertEnable": "0",
             "acceleration": 6500,
             "watchPeriod": 1,
-            "pidP": 48.3,
-            "pidI": 9.7,
-            "pidD": 60,
+            "pidP": 15.85,
+            "pidI": 1.23,
+            "pidD": 51.2,
             "advanceK": 0,
             "advanceL": 0,
             "waitRetractTemp": 150,
             "waitRetractUnits": 4,
             "waitRetract": 4,
-            "stepsPerMM": 92.4,
+            "stepsPerMM": 92.65,
             "coolerPin": "ORIG_FAN_PIN",
             "coolerSpeed": 255,
             "selectCommands": "",
@@ -659,7 +642,7 @@ Values must be in range 1..255
     "uiController": 0,
     "xMinEndstop": 0,
     "yMinEndstop": 0,
-    "zMinEndstop": 0,
+    "zMinEndstop": 1,
     "xMaxEndstop": 1,
     "yMaxEndstop": 1,
     "zMaxEndstop": 1,
@@ -673,7 +656,7 @@ Values must be in range 1..255
     "yHomingSpeed": 80,
     "yTravelAcceleration": 3000,
     "yPrintAcceleration": 1850,
-    "zMaxSpeed": 2,
+    "zMaxSpeed": 250,
     "zHomingSpeed": 80,
     "zTravelAcceleration": 3000,
     "zPrintAcceleration": 1850,
@@ -706,8 +689,8 @@ Values must be in range 1..255
     "zMinPos": 0,
     "xLength": 200,
     "yLength": 200,
-    "zLength": 349,
-    "alwaysCheckEndstops": "1",
+    "zLength": 302.11,
+    "alwaysCheckEndstops": "0",
     "disableX": "0",
     "disableY": "0",
     "disableZ": "0",
@@ -728,7 +711,7 @@ Values must be in range 1..255
     "deltaDiagonalCorrA": 0,
     "deltaDiagonalCorrB": 0,
     "deltaDiagonalCorrC": 0,
-    "deltaMaxRadius": 150,
+    "deltaMaxRadius": 145,
     "deltaFloorSafetyMarginMM": 15,
     "deltaRadiusCorrA": 0,
     "deltaRadiusCorrB": 0,
@@ -820,8 +803,8 @@ Values must be in range 1..255
     "uiExtruderFeedrate": 2,
     "uiExtruderRetractDistance": 3,
     "uiSpeeddependentPositioning": "1",
-    "maxBedTemperature": 120,
-    "bedSensorType": 5,
+    "maxBedTemperature": 70,
+    "bedSensorType": 97,
     "bedSensorPin": "TEMP_1_PIN",
     "bedHeaterPin": "HEATER_1_PIN",
     "bedHeatManager": 0,
@@ -908,18 +891,18 @@ Values must be in range 1..255
     "zProbeWaitBeforeTest": "0",
     "zProbeSpeed": 2,
     "zProbeXYSpeed": 150,
-    "zProbeHeight": 0,
+    "zProbeHeight": -0.1,
     "zProbeStartScript": "",
     "zProbeFinishedScript": "",
     "featureAutolevel": "1",
-    "zProbeX1": -123.565,
-    "zProbeY1": -71.34,
-    "zProbeX2": 123.565,
-    "zProbeY2": -71.34,
+    "zProbeX1": -77.94,
+    "zProbeY1": -45,
+    "zProbeX2": 77.94,
+    "zProbeY2": -45,
     "zProbeX3": 0,
-    "zProbeY3": 142.68,
-    "zProbeSwitchingDistance": 1,
-    "zProbeRepetitions": 1,
+    "zProbeY3": 90,
+    "zProbeSwitchingDistance": 0.2,
+    "zProbeRepetitions": 3,
     "sdSupport": "1",
     "sdCardDetectPin": 91,
     "sdCardDetectInverted": "0",
@@ -956,7 +939,7 @@ Values must be in range 1..255
     "pauseEndCommands": "G91\/nG1 Z-10.0 E5.1 F1500\/nG90\/n",
     "distortionCorrection": "1",
     "distortionCorrectionPoints": 5,
-    "distortionCorrectionR": 60,
+    "distortionCorrectionR": 80,
     "distortionPermanent": "1",
     "distortionUpdateFrequency": 15,
     "distortionStartDegrade": 0.5,
@@ -1073,7 +1056,7 @@ Values must be in range 1..255
     "zHomeYPos": 999999,
     "zHomeHeatHeight": 20,
     "zHomeHeatAll": "1",
-    "zProbeZOffsetMode": 0,
+    "zProbeZOffsetMode": 1,
     "zProbeZOffset": 0,
     "uiBedCoating": "1",
     "langEN": "1",
@@ -1090,9 +1073,9 @@ Values must be in range 1..255
     "langTR": "0",
     "interpolateAccelerationWithZ": 0,
     "accelerationFactorTop": 100,
-    "bendingCorrectionA": 0,
-    "bendingCorrectionB": 0,
-    "bendingCorrectionC": 0,
+    "bendingCorrectionA": 0.1,
+    "bendingCorrectionB": 0.1,
+    "bendingCorrectionC": 0.1,
     "preventZDisableOnStepperTimeout": "0",
     "supportLaser": "0",
     "laserPin": -1,
@@ -1126,10 +1109,10 @@ Values must be in range 1..255
     "boardFanSpeed": 255,
     "hasMAX6675": false,
     "hasMAX31855": false,
-    "hasGeneric1": false,
+    "hasGeneric1": true,
     "hasGeneric2": false,
     "hasGeneric3": false,
-    "hasUser0": true,
+    "hasUser0": false,
     "hasUser1": false,
     "hasUser2": false,
     "numExtruder": 1,
