@@ -42,9 +42,9 @@
 
 // ################## EDIT THESE SETTINGS MANUALLY ################
 //  Microstepping mod eof your RAMO board
-#define MICROSTEP_MODES { 8,8,8,8,8 } // [1,2,4,8,16]
+#define MICROSTEP_MODES { 16,16,16,16,16 } // [1,2,4,8,16]
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define MOTOR_CURRENT_PERCENT { 55,55,55,55,55 }
+#define MOTOR_CURRENT_PERCENT { 68,68,68,78,0 }
 
 // ################ END MANUAL SETTINGS ##########################
 
