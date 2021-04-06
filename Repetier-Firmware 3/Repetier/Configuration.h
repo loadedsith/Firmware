@@ -257,7 +257,7 @@ It also can add a delay to wait for spindle to run on full speed.
 
 #define min_software_endstop_x false
 #define min_software_endstop_y false
-#define min_software_endstop_z true
+#define min_software_endstop_z false
 #define max_software_endstop_x true
 #define max_software_endstop_y true
 #define max_software_endstop_z true
@@ -293,14 +293,14 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define DISTORTION_CORRECTION 0
+#define DISTORTION_CORRECTION 1
 #define DISTORTION_CORRECTION_POINTS 5
-#define DISTORTION_CORRECTION_R 100
+#define DISTORTION_CORRECTION_R 80
 #define DISTORTION_PERMANENT 1
 #define DISTORTION_UPDATE_FREQUENCY 15
 #define DISTORTION_START_DEGRADE 0.5
 #define DISTORTION_END_HEIGHT 1
-#define DISTORTION_EXTRAPOLATE_CORNERS 0
+#define DISTORTION_EXTRAPOLATE_CORNERS 1
 #define DISTORTION_XMIN 10
 #define DISTORTION_YMIN 10
 #define DISTORTION_XMAX 190
@@ -330,9 +330,9 @@ It also can add a delay to wait for spindle to run on full speed.
 #define DELTA_DIAGONAL_CORRECTION_C 0
 #define END_EFFECTOR_HORIZONTAL_OFFSET 30.22
 #define CARRIAGE_HORIZONTAL_OFFSET 26.5
-#define DELTA_MAX_RADIUS 135.0
-#define ROD_RADIUS 144
-#define PRINTER_RADIUS 144
+#define DELTA_MAX_RADIUS 144.0
+#define ROD_RADIUS 140
+#define PRINTER_RADIUS 120
 #define DELTA_HOME_ON_POWER 0
 #define STEP_COUNTER
 #define DELTA_X_ENDSTOP_OFFSET_STEPS 0
@@ -453,7 +453,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define Z_PROBE_XY_SPEED 150
 #define Z_PROBE_SWITCHING_DISTANCE 1
 #define Z_PROBE_REPETITIONS 1
-#define Z_PROBE_HEIGHT 0
+#define Z_PROBE_HEIGHT -.1
 #define Z_PROBE_START_SCRIPT ""
 #define Z_PROBE_FINISHED_SCRIPT ""
 #define Z_PROBE_REQUIRES_HEATING 0
@@ -475,9 +475,9 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define BED_MOTOR_2_Y 0
 #define BED_MOTOR_3_X 100
 #define BED_MOTOR_3_Y 200
-#define BENDING_CORRECTION_A 0
-#define BENDING_CORRECTION_B 0
-#define BENDING_CORRECTION_C 0
+#define BENDING_CORRECTION_A .1
+#define BENDING_CORRECTION_B .1
+#define BENDING_CORRECTION_C .1
 #define FEATURE_AXISCOMP 0
 #define AXISCOMP_TANXY 0
 #define AXISCOMP_TANYZ 0
@@ -946,14 +946,14 @@ Values must be in range 1..255
     "retractOnPause": 8,
     "pauseStartCommands": "G91\/nG1 Z10.0 E-5.0 F1500\/nG90\/n",
     "pauseEndCommands": "G91\/nG1 Z-10.0 E5.1 F1500\/nG90\/n",
-    "distortionCorrection": "0",
+    "distortionCorrection": "1",
     "distortionCorrectionPoints": 5,
-    "distortionCorrectionR": 100,
+    "distortionCorrectionR": 60,
     "distortionPermanent": "1",
     "distortionUpdateFrequency": 15,
     "distortionStartDegrade": 0.5,
     "distortionEndDegrade": 1,
-    "distortionExtrapolateCorners": "0",
+    "distortionExtrapolateCorners": "1",
     "distortionXMin": 10,
     "distortionXMax": 190,
     "distortionYMin": 10,
