@@ -41,11 +41,10 @@
 #include "pins.h"
 
 // ################## EDIT THESE SETTINGS MANUALLY ################
-//  Microstepping mode of your RAMBO board
-#define MICROSTEP_MODES { 8,8,8,8,8 } // [1,2,4,8,16]
+//  Microstepping mod eof your RAMO board
+#define MICROSTEP_MODES { 16,16,16,16,16 } // [1,2,4,8,16]
 // Motor Current setting (Only functional when motor driver current ref pins are connected to a digital trimpot on supported boards)
-#define MOTOR_CURRENT_PERCENT { 55,55,55,55,55 }
-
+#define MOTOR_CURRENT_PERCENT { 68,68,68,78,0 }
 
 // ################ END MANUAL SETTINGS ##########################
 
@@ -271,13 +270,13 @@ It also can add a delay to wait for spindle to run on full speed.
 #define ENDSTOP_Z2_MINMAX_INVERTING false
 #define MINMAX_HARDWARE_ENDSTOP_Z2 false
 #define ENDSTOP_PULLUP_X_MAX true
-#define ENDSTOP_X_MAX_INVERTING true
+#define ENDSTOP_X_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MAX true
-#define ENDSTOP_Y_MAX_INVERTING true
+#define ENDSTOP_Y_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MAX true
-#define ENDSTOP_Z_MAX_INVERTING true
+#define ENDSTOP_Z_MAX_INVERTING false
 #define MAX_HARDWARE_ENDSTOP_Z true
 #define ENDSTOP_PULLUP_X2_MIN true
 #define ENDSTOP_PULLUP_Y2_MIN true
@@ -302,12 +301,12 @@ It also can add a delay to wait for spindle to run on full speed.
 
 #define max_software_endstop_r true
 
-#define min_software_endstop_x true
-#define min_software_endstop_y true
+#define min_software_endstop_x false
+#define min_software_endstop_y false
 #define min_software_endstop_z false
-#define max_software_endstop_x false
-#define max_software_endstop_y false
-#define max_software_endstop_z false
+#define max_software_endstop_x true
+#define max_software_endstop_y true
+#define max_software_endstop_z true
 #define DOOR_PIN -1
 #define DOOR_PULLUP 1
 #define DOOR_INVERTING 1
@@ -358,7 +357,7 @@ It also can add a delay to wait for spindle to run on full speed.
 
 #define DISTORTION_CORRECTION 1
 #define DISTORTION_CORRECTION_POINTS 5
-#define DISTORTION_LIMIT_TO 2
+#define DISTORTION_LIMIT_TO 0
 #define DISTORTION_CORRECTION_R 80
 #define DISTORTION_PERMANENT 1
 #define DISTORTION_UPDATE_FREQUENCY 15
@@ -382,7 +381,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define EXACT_DELTA_MOVES 1
 
 // Delta settings
-#define DELTA_DIAGONAL_ROD 291.06 // mm
+#define DELTA_DIAGONAL_ROD 340.5 // mm
 #define DELTA_ALPHA_A 210
 #define DELTA_ALPHA_B 330
 #define DELTA_ALPHA_C 90
@@ -420,7 +419,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define RAISE_Z_ON_TOOLCHANGE 0
 #define ZHOME_MIN_TEMPERATURE 0
 #define ZHOME_HEAT_ALL 1
-#define ZHOME_HEAT_HEIGHT 20
+#define ZHOME_HEAT_HEIGHT 10
 #define ZHOME_X_POS 999999
 #define ZHOME_Y_POS 999999
 #define ENABLE_BACKLASH_COMPENSATION 0
@@ -529,7 +528,7 @@ WARNING: Servos can draw a considerable amount of current. Make sure your system
 #define Z_PROBE_WAIT_BEFORE_TEST 0
 #define Z_PROBE_SPEED 2
 #define Z_PROBE_XY_SPEED 150
-#define Z_PROBE_SWITCHING_DISTANCE 0.2
+#define Z_PROBE_SWITCHING_DISTANCE 2
 #define Z_PROBE_REPETITIONS 3
 #define Z_PROBE_USE_MEDIAN 0
 #define Z_PROBE_HEIGHT -0.1
